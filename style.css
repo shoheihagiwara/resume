@@ -1,0 +1,96 @@
+body {
+    color: #333;
+    font-family: Lato, Arial, sans-serif;
+    font-size: 1.8rem;
+}
+
+#greet {
+    display: inline;
+}
+
+#sub-greet {
+    margin-top: 0.5rem;
+}
+
+h4 {
+    margin: 0;
+}
+
+ul {
+    margin-top: 0;
+}
+
+#me-img {
+    height: 5rem;
+    width: 5rem;
+    margin: 1rem 1rem 0 1rem;
+}
+
+#container {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 100px;
+}
+
+#upper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 80px;
+}
+
+#skills {
+    background-color: indigo;
+    color: whitesmoke;
+    padding: 3rem;
+}
+
+#main {
+    padding: 50px;
+}
+
+#main p {
+    line-height: 3rem;
+}
+
+#span1,
+#span2,
+#span3 {
+    background-color: aquamarine;
+    height: 50px;
+    width: 50px;
+}
+
+.external-site-img {
+    height: 34px;
+    width: 34px;
+    padding: 8px;
+    border-style: none;
+    background-color: ivory;
+    border-radius: 50%;
+}
+
+h3 {
+    color: rgb(42, 44, 167);
+    margin-top: 5rem;
+}
+
+li {
+    font-size: 1.2rem;
+}
+
+#bottom {
+    background-color: indigo;
+    padding: 10px;
+    text-align: center;
+}
+
+#bottom p {
+    color: ivory;
+    margin: 0;
+    font-size: 0.8rem;
+    background-color: indigo;
+}
+
+#bottom a {
+    color: lightblue;
+}
