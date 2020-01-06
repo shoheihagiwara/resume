@@ -95,6 +95,14 @@ li {
     color: lightblue;
 }
 
+#bottom a:visited {
+    color: lightblue;
+}
+
 #skills a {
+    color: lightblue;
+}
+
+#skills a:visited {
     color: lightblue;
 }
