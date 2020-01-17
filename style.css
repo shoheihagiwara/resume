@@ -1,7 +1,12 @@
+html {
+    height: 100%;
+}
+
 body {
     color: #333;
     font-family: Lato, Arial, sans-serif;
     font-size: 1.8rem;
+    height: 100%;
 }
 
 #greet {
@@ -27,15 +32,16 @@ ul {
 }
 
 #container {
-    display: grid;
-    grid-template-rows: 1fr;
-    gap: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #upper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 80px;
+    flex: 1;
 }
 
 #skills {
@@ -78,26 +84,7 @@ li {
     font-size: 1.2rem;
 }
 
-#bottom {
-    background-color: indigo;
-    padding: 10px;
-    text-align: center;
-}
 
-#bottom p {
-    color: ivory;
-    margin: 0;
-    font-size: 0.8rem;
-    background-color: indigo;
-}
-
-#bottom a {
-    color: lightblue;
-}
-
-#bottom a:visited {
-    color: lightblue;
-}
 
 #skills a {
     color: lightblue;
@@ -106,3 +93,129 @@ li {
 #skills a:visited {
     color: lightblue;
 }
+#bottom {
+    /*background-color: indigo;*/
+    padding: 10px;
+    text-align: center;
+}
+
+#bottom p {
+    /*color: ivory;*/
+    margin: 0;
+    font-size: 0.8rem;
+    color: #2a2a2a;
+    /*background-color: indigo;*/
+}
+
+#bottom h1 {
+    color: #2a2a2a;
+}
+#bottom a {
+    color: rgb(5, 168, 233);
+    font-weight: bold;
+}
+#bottom a:visited {
+    color: rgb(5, 168, 233);
+    font-weight: bold;
+}
+
+#bottom article {
+    margin: 3rem auto 0 auto;
+    padding: .5rem;
+}
+
+#bottom h1 {
+    margin: 0 0 .5rem 0;
+}
+
+table, td, tr, th {
+    width: 350px;
+    margin: 2rem;
+}
+
+th {
+    text-align: left;
+
+}
+td {
+    font-size: 1.2rem;
+}
+
+
+/* mimicing Tachyon */
+.center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.tc {
+    text-align: center;
+}
+
+article {
+    display: block;
+}
+
+.ma3 {
+    margin: 1rem;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.mw5 {
+    max-width: 16rem;
+}
+
+.br3 {
+    border-radius: .5rem;
+}
+
+.b--black-10 {
+    border-color: rgba( 0, 0, 0, .1 );
+}
+
+.ba {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.footer-item {
+    padding: 1rem;
+}
+.w3 {
+    width: 4rem;
+}
+
+.dib {
+    display: inline-block;
+}
+.br-100 {
+    border-radius: 100%;
+}
+
+.f4 {
+    font-size: 1.25rem;
+}
+
+.f6 {
+    font-size: .875rem;
+}
+
+.black-70 {
+    color: rgba( 0, 0, 0, .7 );
+}
+
+.lh-copy {
+    line-height: 1.5;
+}
+
+/*
+img {
+    max-width: 100%;
+}
+img {
+    border-style: none;
+}
+*/
