@@ -8,36 +8,37 @@
     <link rel="stylesheet" href="style.css">
     <title>Shohei Hagiwara | Software Developer</title>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <!-- follwoing is for i18n -->
+    <script src="https://unpkg.com/i18next@19.3.2/dist/umd/i18next.min.js"></script>
 </head>
 
 <body>
     <div id="container">
         <div id="upper">
             <div id="main">
-                <h1 id="greet">Hi! I'm Shohei.</h1><img id="me-img" src="me.png" alt="Me">
-                <h2 id="sub-greet">I'm a web app developer in Japan.</h2>
-                <h3>About Me</h3>
-                <p>I am a Japanese web app developer living in Japan. I have more than 8 years of experience in the
-                    industry. I have experience in both front-end and back-end.</p>
-                <p>Outside of work, I enjoy jogging, hiking, walking in a park on a sunny day :)</p>
+                <h1 id="greet"></h1><img id="me-img" src="me.png" alt="Me">
+                <h2 id="sub-greet"></h2>
+                <h3 id="about-me"></h3>
+                <p id="about-me-main"></p>
+                <p id="about-me-fun"></p>
             </div>
             <div id="skills">
-                <h4>Skills</h4>
+                <h4 id="skills-header"></h4>
                 <table>
                     <tr>
-                        <th scope="col" colspan="2">Languages</th>
+                        <th id="langs-header" scope="col" colspan="2"></th>
                     <tr>
-                        <td>Japanese</td>
+                        <td id="langs-japanese"></td>
                         <td>●●●●●</td>
                     </tr>
                     <tr>
-                        <td>English</td>
+                        <td id="langs-english"></td>
                         <td>●●●●○</td>
                     </tr>
                 </table>
                 <table>
                     <tr>
-                        <th scope="col" colspan="2">Programming Languages</th>
+                        <th id="prog-langs-header" scope="col" colspan="2"></th>
                     <tr>
                         <td>Python3</td>
                         <td>●●●●●</td>
@@ -48,7 +49,7 @@
                     <td>SQL</td>
                     <td>●●●●●</td>
                     </tr>
-                    <td>shell script</td>
+                    <td id="prog-langs-shell"></td>
                     <td>●●●●○</td>
                     </tr>
                     <td>JavaScript</td>
@@ -63,21 +64,20 @@
                 </table>
                 <table>
                     <tr>
-                        <th scope="col">Other Skills</th>
+                        <th id="other-skills-header" scope="col"></th>
                     </tr>
                     <tr>
-                        <td>Spring Boot, CentOS 7, RHEL 7, GCP, PostgreSQL, Linux Systems Admin, Bzr, Git, React, Recux,
-                            Jenkins, Redmine</td>
+                        <td id="other-skills-details"></td>
                     </tr>
                 </table>
-                <h4>Portfolio</h4>
+                <h4 id="portfolio-header"></h4>
                 <ul>
-                    <li class="portfolio-li"><a href="https://shoheihagiwara.github.io/background-gradient-generator/"
-                            target="_blank" rel="noopener noreferrer">Background Gradient Generator</a></li>
-                    <li class="portfolio-li"><a href="http://ai-generated-facemash.herokuapp.com/"
-                           target="_blank" rel="noopener noreferrer">Who Has a Nicer Smile?</a><br>(Work in Progres. It is slow on first load. Please be patient.)</li>
-                    <li class="portfolio-li"><a href="https://github.com/shoheihagiwara/shoheihagiwara-cli"
-                           target="_blank" rel="noopener noreferrer">shoheihagiwara CLI</a><br>(Just run "npx shoheihagiwara" on your terminal and see what happens. npx command needs to be already installed on your system though...)</li>
+                    <li class="portfolio-li"><a id="pf-bgg-link" href="https://shoheihagiwara.github.io/background-gradient-generator/"
+                            target="_blank" rel="noopener noreferrer"></a></li>
+                    <li class="portfolio-li"><a id="pf-whns-link" href="http://ai-generated-facemash.herokuapp.com/" target="_blank"
+                            rel="noopener noreferrer"></a><br><span id="pf-whns-extra"></span></li>
+                    <li class="portfolio-li"><a id="pf-cli-link" href="https://github.com/shoheihagiwara/shoheihagiwara-cli"
+                            target="_blank" rel="noopener noreferrer"></a><br><span id="pf-cli-extra"></span></li>
                 </ul>
             </div>
         </div>
@@ -96,14 +96,81 @@
 
             <article class="tc footer-item center bg-white br3 ba b--black-10 ma3 mw5">
                 <div class="tc"><img src="me.png" alt="My Icon" class="br-100 w3 dib" title="Shohei Hagiwara icon">
-                    <h1 class="f4">Shohei Hagiwara</h1>
+                    <h1 id="card-my-name" class="f4"></h1>
                 </div>
-                <p class="lh-copy center f6 black-70"> Web Application Developer. </p>
+                <p id="card-job-title" class="lh-copy center f6 black-70"></p>
                 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/shoheihagiwara">GitHub</a> | <a
                         target="_blank" rel="noopener noreferrer"
                         href="https://www.linkedin.com/in/shoheihagiwara">LinkedIn</a></p>
             </article>
         </div>
-
     </div>
+    <script>
+
+        // when language changed, re-render everything related to i18n.
+        i18next.on('languageChanged', () => {
+
+            // set head title. this is shown on bowser tab in Chrome.
+            document.title = i18next.t("title");
+            document.getElementById("greet").innerHTML = i18next.t("greet");
+            document.getElementById("sub-greet").innerHTML = i18next.t("subGreet");
+            document.getElementById("about-me").innerHTML = i18next.t("aboutMe");
+            document.getElementById("about-me-main").innerHTML = i18next.t("aboutMeMain");
+            document.getElementById("about-me-fun").innerHTML = i18next.t("aboutMeFun");
+            document.getElementById("skills-header").innerHTML = i18next.t("skillsHeader");
+            document.getElementById("langs-header").innerHTML = i18next.t("langsHeader");
+            document.getElementById("langs-japanese").innerHTML = i18next.t("langsJapanese");
+            document.getElementById("langs-english").innerHTML = i18next.t("langsEnglish");
+            document.getElementById("prog-langs-header").innerHTML = i18next.t("progLangsHeader");
+            document.getElementById("prog-langs-shell").innerHTML = i18next.t("progLangsShell");
+            document.getElementById("other-skills-header").innerHTML = i18next.t("otherSkillsHeader");
+            document.getElementById("other-skills-details").innerHTML = i18next.t("otherSkillsDetails");
+            document.getElementById("portfolio-header").innerHTML = i18next.t("portfolioHeader");
+            document.getElementById("pf-bgg-link").innerHTML = i18next.t("pfBGGLink");
+            document.getElementById("pf-whns-link").innerHTML = i18next.t("pfWHNSLink");
+            document.getElementById("pf-whns-extra").innerHTML = i18next.t("pfWHNSExtra");
+            document.getElementById("pf-cli-link").innerHTML = i18next.t("pfCliLink");
+            document.getElementById("pf-cli-extra").innerHTML = i18next.t("pfcliExtra");
+            document.getElementById("card-my-name").innerHTML = i18next.t("cardMyName");
+            document.getElementById("card-job-title").innerHTML = i18next.t("cardJobTitle");
+
+        });
+
+        i18next.init({
+            resources: {
+                en: {
+                    translation: {
+                        title: "Shohei Hagiwara | Software Developer",
+                        greet: "Hi! I'm Shohei.",
+                        subGreet: "I'm a web app developer in Japan.",
+                        aboutMe: "About Me",
+                        aboutMeMain: "I am a Japanese web app developer living in Japan. I have more than 8 years of experience in the industry. I have experience in both front-end and back-end.",
+                        aboutMeFun: "Outside of work, I enjoy jogging, hiking, walking in a park on a sunny day :)",
+                        skillsHeader: "Skills",
+                        langsHeader: "Languages",
+                        langsJapanese: "Japanese",
+                        langsEnglish: "English",
+                        progLangsHeader: "Programming Languages",
+                        progLangsShell: "Shell Scripts",
+                        otherSkillsHeader: "Other Skills",
+                        otherSkillsDetails: "Spring Boot, CentOS 7, RHEL 7, GCP, PostgreSQL, Linux Systems Admin, Bzr, Git, React, Recux, Jenkins, Redmine",
+                        portfolioHeader: "Portfolio",
+                        pfBGGLink: "Background Gradient Generator",
+                        pfWHNSLink: "Who Has a Nicer Smile?",
+                        pfWHNSExtra: "(Work in Progres. It is slow on first load. Please be patient.)",
+                        pfCliLink: "shoheihagiwara CLI",
+                        pfcliExtra: '(Just run "npx shoheihagiwara" on your terminal and see what happens. npx command needs to be already installed on your system though...)',
+                        cardMyName: "Shohei Hagiwara",
+                        cardJobTitle: " Web Application Developer. "
+
+
+                    }
+                },
+                ja: {}
+            }
+        }, () => {
+            i18next.changeLanguage('en')
+        });
+
+    </script>
 </body>
