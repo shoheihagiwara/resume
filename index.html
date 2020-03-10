@@ -16,6 +16,10 @@
     <div id="container">
         <div id="upper">
             <div id="main">
+                <div id="language-toggle">
+                    <a href="#en" onclick="i18next.changeLanguage('en'); return false;">English</a>
+                    <a href="#ja" onclick="i18next.changeLanguage('ja'); return false;">日本語</a>
+                </div>
                 <h1 id="greet"></h1><img id="me-img" src="me.png" alt="Me">
                 <h2 id="sub-greet"></h2>
                 <h3 id="about-me"></h3>
@@ -72,12 +76,14 @@
                 </table>
                 <h4 id="portfolio-header"></h4>
                 <ul>
-                    <li class="portfolio-li"><a id="pf-bgg-link" href="https://shoheihagiwara.github.io/background-gradient-generator/"
-                            target="_blank" rel="noopener noreferrer"></a></li>
-                    <li class="portfolio-li"><a id="pf-whns-link" href="http://ai-generated-facemash.herokuapp.com/" target="_blank"
-                            rel="noopener noreferrer"></a><br><span id="pf-whns-extra"></span></li>
-                    <li class="portfolio-li"><a id="pf-cli-link" href="https://github.com/shoheihagiwara/shoheihagiwara-cli"
-                            target="_blank" rel="noopener noreferrer"></a><br><span id="pf-cli-extra"></span></li>
+                    <li class="portfolio-li"><a id="pf-bgg-link"
+                            href="https://shoheihagiwara.github.io/background-gradient-generator/" target="_blank"
+                            rel="noopener noreferrer"></a></li>
+                    <li class="portfolio-li"><a id="pf-whns-link" href="http://ai-generated-facemash.herokuapp.com/"
+                            target="_blank" rel="noopener noreferrer"></a><br><span id="pf-whns-extra"></span></li>
+                    <li class="portfolio-li"><a id="pf-cli-link"
+                            href="https://github.com/shoheihagiwara/shoheihagiwara-cli" target="_blank"
+                            rel="noopener noreferrer"></a><br><span id="pf-cli-extra"></span></li>
                 </ul>
             </div>
         </div>
@@ -112,6 +118,8 @@
 
             // set head title. this is shown on bowser tab in Chrome.
             document.title = i18next.t("title");
+
+            // set every HTML element's text.
             document.getElementById("greet").innerHTML = i18next.t("greet");
             document.getElementById("sub-greet").innerHTML = i18next.t("subGreet");
             document.getElementById("about-me").innerHTML = i18next.t("aboutMe");
@@ -162,11 +170,34 @@
                         pfcliExtra: '(Just run "npx shoheihagiwara" on your terminal and see what happens. npx command needs to be already installed on your system though...)',
                         cardMyName: "Shohei Hagiwara",
                         cardJobTitle: " Web Application Developer. "
-
-
                     }
                 },
-                ja: {}
+                ja: {
+                    translation: {
+                        title: "Shohei Hagiwara | Software Developer",
+                        greet: "はじめまして",
+                        subGreet: "ウェブアプリ開発者の<br>萩原祥平です",
+                        aboutMe: "About Me",
+                        aboutMeMain: "日本在住、かれこれ8年ウェブアプリ開発をしています。バックエンド、フロントエンドどちらも経験あり。",
+                        aboutMeFun: "趣味はジョギング、ハイキング、天気がいい日の散歩。",
+                        skillsHeader: "スキル/技術",
+                        langsHeader: "言語",
+                        langsJapanese: "日本語",
+                        langsEnglish: "英語",
+                        progLangsHeader: "プログラミング言語",
+                        progLangsShell: "シェルスクリプト",
+                        otherSkillsHeader: "その他のスキル/技術",
+                        otherSkillsDetails: "Spring Boot, CentOS 7, RHEL 7, GCP, PostgreSQL, Linuxシスアド, Bzr, Git, React, Recux, Jenkins, Redmine",
+                        portfolioHeader: "ポートフォリオ",
+                        pfBGGLink: "Background Gradient Generator",
+                        pfWHNSLink: "Who Has a Nicer Smile?",
+                        pfWHNSExtra: "(作成途中。はじめての読み込みが遅く20～30秒かかることがあります。気長にお待ち下さい。。。)",
+                        pfCliLink: "shoheihagiwara CLI",
+                        pfcliExtra: '("npx shoheihagiwara"をコマンドラインで実行してみてください。注：npxコマンドがインストールされている必要があります)',
+                        cardMyName: "Shohei Hagiwara",
+                        cardJobTitle: " ウェブアプリ開発者 "
+                    }
+                }
             }
         }, () => {
             i18next.changeLanguage('en')

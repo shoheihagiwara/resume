@@ -214,6 +214,11 @@ article {
     line-height: 1.5;
 }
 
+#language-toggle a {
+    margin-right: 1.5rem;
+    color: rgba(7, 141, 194, 0.671);
+}
+
 /*
 img {
     max-width: 100%;
